@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap');
+
+.library-bookshelf-container {
+  font-family: 'Nunito', sans-serif;
+  perspective: 1200px;
+}
+
+.library-book-wrapper {
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-style: preserve-3d;
+  bottom: 0;
+}
+
+.library-book-wrapper:not(.cursor-not-allowed):hover {
+  transform: translateY(-12px);
+}
+
+.library-book-wrapper.cursor-not-allowed:hover {
+  transform: translateY(-4px);
+}
+
+.library-book {
+  position: relative;
+  width: 76px;
+  border-radius: 4px 12px 12px 4px;
+  box-shadow: 10px 10px 20px rgba(0,0,0,0.5);
+  transform-style: preserve-3d;
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: filter 0.3s ease, box-shadow 0.3s ease;
+  z-index: 2;
+}
+
+.library-book.locked {
+  filter: brightness(0.55) saturate(0.6) contrast(1.2);
+}
+
+.library-book.locked:hover {
+  filter: brightness(0.7) saturate(0.8) contrast(1.1);
+}
+
+.library-book.active {
+  box-shadow: 0 0 30px rgba(34, 197, 94, 0.5), 10px 10px 20px rgba(0,0,0,0.5);
+  z-index: 10;
+  filter: brightness(1.1) saturate(1.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.library-book.active::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 4px 14px 14px 4px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.library-book-spine-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+}
+
+.library-book-number {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgba(255,255,255,0.95);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5), -1px -1px 0 rgba(255,255,255,0.2);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.library-book-emoji {
+  font-size: 2rem;
+  filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.5));
+}
+
+.library-shelf {
+  position: absolute;
+  height: 24px;
+  background: linear-gradient(to bottom, #A66A38, #5C3A21);
+  border-radius: 2px;
+  box-shadow: 
+    0 15px 25px rgba(0,0,0,0.6), 
+    inset 0 3px 6px rgba(255,255,255,0.15),
+    inset 0 -2px 5px rgba(0,0,0,0.5);
+  border-bottom: 3px solid #2A170A;
+  z-index: 1;
+}
+
+/* Wood grain texture overlay */
+.library-shelf::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0,0,0,0.1) 2px,
+    rgba(0,0,0,0.1) 4px
+  );
+  opacity: 0.5;
+  pointer-events: none;
+}

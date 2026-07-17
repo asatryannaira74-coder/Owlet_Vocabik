@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
+
+.step-blocks-container {
+  font-family: 'Nunito', sans-serif;
+  background-color: #0f172a;
+}
+
+.staircase-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* Center it loosely on the right half of the screen */
+}
+
+.step-btn {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  /* Perspective on parent so 3D effect works per-button */
+  perspective: 1200px;
+  z-index: 10;
+}
+
+.step-btn-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Isometric projection */
+  transform: rotateX(60deg) rotateZ(-45deg) translateZ(0);
+  transform-style: preserve-3d;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step-shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  border-radius: 24px;
+  transform: rotateX(60deg) rotateZ(-45deg) translateZ(-40px) translate(10px, 10px);
+  filter: blur(15px);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+.step-face-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--btn-color);
+  border-radius: 24px;
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateZ(40px);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Front edge (bottom edge in 2D before rotateX) */
+.step-face-front {
+  position: absolute;
+  top: 100%;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: 40px; /* thickness */
+  background: var(--btn-color-dark);
+  transform-origin: top;
+  transform: rotateX(-90deg);
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border: 4px solid rgba(255,255,255,0.2);
+  border-top: none;
+  transition: height 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Right edge (right edge in 2D before rotateY) */
+.step-face-right {
+  position: absolute;
+  top: -4px;
+  left: 100%;
+  width: 40px; /* thickness */
+  height: calc(100% + 8px);
+  background: var(--btn-color-dark);
+  filter: brightness(0.85);
+  transform-origin: left;
+  transform: rotateY(90deg);
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border: 4px solid rgba(255,255,255,0.2);
+  border-left: none;
+  transition: width 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.step-content {
+  transform: translateZ(10px) rotateZ(45deg); /* Counter-rotate text so it faces camera slightly, or keep flat. Let's keep flat on the top face by not rotating Z back fully, actually isometric text lies flat on the top face so rotateZ(45deg) makes it upright to the screen. */
+  text-align: center;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wait, if the face is rotateZ(-45deg), text should be rotated +45deg to read straight?
+   Actually, if it's painted on the step, it should just be flat. Let's leave step-content rotateZ(45deg) so it aligns with the screen, making it easier to read. */
+
+.step-emoji {
+  font-size: 3rem;
+  margin-bottom: 0.25rem;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+  /* Ensure emoji stands upright relative to the screen */
+  transform: translateZ(10px);
+}
+
+.step-label {
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transform: translateZ(5px);
+}
+
+/* Active State Styles */
+.step-btn.active {
+  z-index: 50;
+}
+
+.step-btn.active:hover {
+  z-index: 100;
+}
+
+.step-btn.active:hover .step-btn-inner {
+  transform: rotateX(60deg) rotateZ(-45deg) translateZ(20px);
+  cursor: pointer;
+}
+
+.step-btn.active:hover .step-face-top {
+  box-shadow: inset 0 0 30px rgba(255,255,255,0.6), 0 0 40px rgba(var(--btn-color-rgb), 0.4);
+}
+
+.step-btn.active:active .step-btn-inner {
+  transform: rotateX(60deg) rotateZ(-45deg) translateZ(-10px);
+}
+
+/* Locked State Styles */
+.step-btn.locked {
+  filter: saturate(40%) opacity(0.85);
+  cursor: not-allowed;
+  z-index: 5;
+}
+
+.step-btn.locked .step-face-top {
+  transform: translateZ(20px);
+}
+
+.step-btn.locked .step-face-front { height: 20px; }
+.step-btn.locked .step-face-right { width: 20px; }
+.step-btn.locked .step-shadow {
+  transform: rotateX(60deg) rotateZ(-45deg) translateZ(-20px) translate(5px, 5px);
+  filter: blur(10px);
+}
+
+.lock-icon-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,0.4);
+  padding: 8px;
+  border-radius: 50%;
+  transform: translateZ(15px) rotateZ(45deg);
+  color: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
