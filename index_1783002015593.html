@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English — Անգլերենի բառապաշար</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f0f4f8;
+      --card: #ffffff;
+      --text: #1a2233;
+      --text-2: #5a6a82;
+      --text-3: #9aaabb;
+      --border: #e0e8f0;
+      --accent: #4f8ef7;
+      --accent-light: #e8f0ff;
+      --success: #34c17a;
+      --success-light: #e6f9f0;
+      --danger: #f25c5c;
+      --danger-light: #fff0f0;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ---- LAYOUT ---- */
+    #app {
+      width: 100%;
+      max-width: 640px;
+      padding: 1rem;
+      flex: 1;
+    }
+
+    .screen { display: none; }
+    .screen.active { display: block; }
+
+    /* ---- HEADER ---- */
+    .top-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 1rem 0 0.5rem;
+      margin-bottom: 1rem;
+    }
+    .top-bar h1 {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .top-bar .user-badge {
+      margin-left: auto;
+      font-size: 13px;
+      color: var(--text-2);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 12px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .top-bar .user-badge:hover { background: var(--danger-light); }
+
+    /* ---- CARDS / BUTTONS ---- */
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.12s, opacity 0.12s;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { opacity: 0.92; }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-ghost { background: transparent; color: var(--text-2); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: var(--bg); }
+    .btn-block { width: 100%; }
+    .btn-sm { padding: 8px 14px; font-size: 13px; }
+
+    /* ---- FORM ---- */
+    .form-group { margin-bottom: 1rem; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text-2); margin-bottom: 6px; }
+    .form-group input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .form-group input:focus { border-color: var(--accent); }
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: 'Nunito', sans-serif;
+      font-size: 15px;
+      outline: none;
+      background: #fff;
+    }
+    .error-msg { color: var(--danger); font-size: 13px; margin-top: 8px; min-height: 18px; }
+
+    /* ---- GRADE SELECT ---- */
+    .grade-hero {
+      background: linear-gradient(160deg, #cfe9f7 0%, #eef6e8 60%, #f3ecd8 100%);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .grade-hero-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .grade-hero-sub {
+      font-size: 13px;
+      color: var(--text-2);
+      margin-bottom: 1.25rem;
+    }
+    .grades-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .grade-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-align: left;
+      width: 100%;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+      transition: transform 0.15s;
+    }
+    .grade-btn:hover:not(:disabled) { transform: translateX(-4px); }
+    .grade-btn:disabled { opacity: 0.5; cursor: default; }
+    .grade-btn .soon {
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(255,255,255,0.5);
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-left: 6px;
+    }
+    .grade-btn .grade-icon { margin-left: auto; font-size: 20px; }
+
+    /* ---- LESSON LIST ---- */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-2);
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+    .back-btn:hover { color: var(--text); }
+
+    .section-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+    .section-sub { font-size: 13px; color: var(--text-2); margin-bottom: 1rem; }
+
+    .lessons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 10px;
+    }
+    .lesson-card {
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 12px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      text-align: left;
+      transition: transform 0.12s, opacity 0.12s;
+    }
+    .lesson-card:hover { transform: translateY(-2px); }
+    .lesson-card:active { transform: scale(0.97); }
+    .lesson-card .lesson-num {
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0.7;
+      margin-bottom: 4px;
+    }
+    .lesson-card .lesson-title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+    .lesson-card .lesson-title-am {
+      font-size: 11px;
+      opacity: 0.75;
+      margin-bottom: 6px;
+    }
+    .lesson-card .lesson-words {
+      font-size: 11px;
+      opacity: 0.65;
+    }
+    .lesson-card.done::after {
+      content: '✓';
+      float: right;
+      font-size: 14px;
+    }
+
+    /* ---- MODE SELECT ---- */
+    .mode-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 1rem;
+    }
+    .mode-btn {
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 1rem;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.12s;
+    }
+    .mode-btn:hover:not(:disabled) { transform: translateY(-2px); }
+    .mode-btn:disabled { opacity: 0.45; cursor: default; }
+    .mode-btn .mode-icon { font-size: 22px; margin-bottom: 2px; }
+    .mode-btn .mode-title { font-size: 14px; font-weight: 700; }
+    .mode-btn .mode-sub { font-size: 12px; opacity: 0.75; }
+
+    /* ---- GAME ---- */
+    .progress-bar-wrap { margin-bottom: 1.25rem; }
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-3);
+      margin-bottom: 4px;
+    }
+    .progress-bar {
+      height: 6px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--success);
+      border-radius: 3px;
+      transition: width 0.3s;
+    }
+
+    .game-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .word-card {
+      width: 100%;
+      padding: 10px 12px;
+      border: 2px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--card);
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      margin-bottom: 8px;
+      transition: border-color 0.12s, background 0.12s, opacity 0.2s;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+    .word-card:hover:not(.matched):not(.shake) { border-color: var(--accent); }
+    .word-card.selected {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .word-card.matched {
+      border-color: var(--success);
+      background: var(--success-light);
+      color: var(--success);
+      opacity: 0.6;
+      cursor: default;
+    }
+    .word-card.shake {
+      border-color: var(--danger);
+      background: var(--danger-light);
+      animation: shake 0.4s ease;
+    }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20% { transform: translateX(-6px); }
+      60% { transform: translateX(6px); }
+    }
+
+    /* ---- DONE SCREEN ---- */
+    .done-screen {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .done-icon { font-size: 52px; margin-bottom: 1rem; }
+    .done-title { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .done-sub { font-size: 14px; color: var(--text-2); margin-bottom: 1.5rem; }
+    .done-buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+
+    /* ---- AUTH ---- */
+    .auth-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+    }
+    .auth-logo { font-size: 48px; margin-bottom: 8px; }
+    .auth-title { font-size: 26px; font-weight: 700; margin-bottom: 4px; }
+    .auth-sub { font-size: 14px; color: var(--text-2); margin-bottom: 1.5rem; }
+    .auth-tabs {
+      display: flex;
+      gap: 0;
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      padding: 4px;
+      margin-bottom: 1.25rem;
+    }
+    .auth-tab {
+      flex: 1;
+      padding: 8px 20px;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      font-family: 'Nunito', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-2);
+      transition: background 0.15s, color 0.15s;
+    }
+    .auth-tab.active { background: #fff; color: var(--text); box-shadow: var(--shadow); }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 400px) {
+      .lessons-grid { grid-template-columns: 1fr 1fr; }
+      .game-columns { gap: 8px; }
+      .word-card { font-size: 13px; padding: 8px 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ========== AUTH ========== -->
+  <div id="screen-auth" class="screen active">
+    <div class="auth-wrap">
+      <div class="auth-logo">🦉</div>
+      <h1 class="auth-title">English</h1>
+      <p class="auth-sub">Անգլերենի բառապաշար</p>
+
+      <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchTab('login')">Մուտք</button>
+        <button class="auth-tab" onclick="switchTab('register')">Գրանցում</button>
+      </div>
+
+      <div class="card" style="width:100%;max-width:360px;">
+
+        <!-- LOGIN -->
+        <div id="tab-login">
+          <div class="form-group">
+            <label>Անուն</label>
+            <input type="text" id="login-name" placeholder="Ձեր անունը">
+          </div>
+          <div class="form-group">
+            <label>PIN</label>
+            <input type="password" id="login-pin" placeholder="••••" maxlength="8">
+          </div>
+          <div class="error-msg" id="login-error"></div>
+          <button class="btn btn-primary btn-block" onclick="doLogin()">Մտնել</button>
+        </div>
+
+        <!-- REGISTER -->
+        <div id="tab-register" style="display:none;">
+          <div class="form-group">
+            <label>Անուն</label>
+            <input type="text" id="reg-name" placeholder="Ձեր անունը">
+          </div>
+          <div class="form-group">
+            <label>PIN (4 կամ ավելի թիվ)</label>
+            <input type="password" id="reg-pin" placeholder="••••" maxlength="8">
+          </div>
+          <div class="form-group">
+            <label>Դասարան</label>
+            <select id="reg-grade">
+              <option value="5">5 Grade</option>
+              <option value="6">6 Grade</option>
+            </select>
+            
+          </div>
+          <div class="form-group">
+            <label>Ծնողի էլ. փոստ <span style="font-weight:400;color:var(--text-3)">(ոչ պարտադիր)</span></label>
+            <input type="email" id="reg-email" placeholder="parent@email.com">
+          </div>
+          <div class="error-msg" id="reg-error"></div>
+          <button class="btn btn-primary btn-block" onclick="doRegister()">Գրանցվել</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== GRADE SELECT ========== -->
+  <div id="screen-grades" class="screen">
+    <div class="top-bar">
+      <span style="font-size:24px;">🦉</span>
+      <h1>English</h1>
+      <span class="user-badge" id="user-badge" onclick="doLogout()">Ելք</span>
+    </div>
+
+    <div class="grade-hero">
+      <div class="grade-hero-title">Ընտրիր դասարան</div>
+      <div class="grade-hero-sub">Ակտիվ է 5-րդ դասարանը, մնացածները կհայտնվեն շուտով</div>
+      <div class="grades-list" id="grades-list"></div>
+    </div>
+  </div>
+
+  <!-- ========== LESSON LIST ========== -->
+  <div id="screen-lessons" class="screen">
+    <div class="top-bar">
+      <span style="font-size:24px;">🦉</span>
+      <h1>English</h1>
+      <span class="user-badge" id="user-badge-2" onclick="doLogout()">Ելք</span>
+    </div>
+    <button class="back-btn" onclick="showScreen('grades')">← Դասարաններ</button>
+    <div class="section-title" id="lessons-title"></div>
+    <div class="section-sub">Ընտրիր դասը</div>
+    <div class="lessons-grid" id="lessons-grid"></div>
+  </div>
+
+  <!-- ========== MODE SELECT ========== -->
+  <div id="screen-mode" class="screen">
+    <button class="back-btn" onclick="showScreen('lessons')">← Դասեր</button>
+    <div class="section-title" id="mode-lesson-title"></div>
+    <div class="section-sub" id="mode-lesson-sub"></div>
+    <div class="mode-grid" id="mode-grid"></div>
+  </div>
+
+  <!-- ========== GAME ========== -->
+  <div id="screen-game" class="screen">
+    <button class="back-btn" onclick="showScreen('mode')">← Դեպի դասը</button>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
+      <span style="font-size:13px;color:var(--text-2);" id="game-title"></span>
+    </div>
+    <div class="progress-bar-wrap">
+      <div class="progress-label">
+        <span>Առաջընթաց</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-bar-fill" id="progress-fill" style="width:0%"></div>
+      </div>
+    </div>
+    <div class="game-columns">
+      <div id="col-left"></div>
+      <div id="col-right"></div>
+    </div>
+    <p style="font-size:12px;color:var(--text-3);margin-top:1rem;" id="game-status"></p>
+  </div>
+
+  <!-- ========== DONE ========== -->
+  <div id="screen-done" class="screen">
+    <div class="done-screen">
+      <div class="done-icon">🎉</div>
+      <div class="done-title">Ավարտված է</div>
+      <div class="done-sub" id="done-sub"></div>
+      <div class="done-buttons">
+        <button class="btn btn-ghost" onclick="showScreen('mode')">Դեպի դասը</button>
+        <button class="btn btn-primary" onclick="showScreen('lessons')">Բոլոր դասերը</button>
+      </div>
+    </div>
+  </div>
+
+</div><!-- #app -->
+
+<script>
+// ============================================================
+// STATE
+// ============================================================
+let currentUser = null;
+let vocabData = null;
+let currentGrade = null;   // { n, color, textColor }
+let currentLesson = null;  // lesson object from vocab
+let currentMode = null;    // 'lesson' | 'review'
+let userProgress = {};     // { lessonId: completedCount }
+let game = null;
+
+  const GRADES = [
+    { n: 9, color: '#E2706F', textColor: '#5c1414', icon: '🎓', available: false },
+    { n: 8, color: '#F0997B', textColor: '#5c2c12', icon: '📐', available: false },
+    { n: 7, color: '#B49AE8', textColor: '#3d2466', icon: '🧮', available: false },
+    { n: 6, color: '#6FCF97', textColor: '#0c4a2c', icon: '📚', available: true  },
+    { n: 5, color: '#5DCAA5', textColor: '#0c4a36', icon: '🔬', available: true  },
+    { n: 4, color: '#A78BFA', textColor: '#3d2466', icon: '✏️', available: false },
+    { n: 3, color: '#F0B429', textColor: '#5c3d00', icon: '🌍', available: false },
+  ];
+
+// ============================================================
+// INIT
+// ============================================================
+async function init() {
+  try {
+    const res = await fetch('/api/me');
+    if (res.ok) {
+      const data = await res.json();
+      currentUser = data.user;
+      await loadVocab(currentUser.grade);
+      showScreen('grades');
+    } else {
+      showScreen('auth');
+    }
+  } catch (e) {
+    showScreen('auth');
+  }
+}
+
+async function loadVocab(grade) {
+  const res = await fetch(`/data/vocabulary_grade${grade}.json`);
+  vocabData = await res.json();
+  await loadProgress(grade);
+}
+
+async function loadProgress(grade) {
+  try {
+    const res = await fetch(`/api/progress/${grade}`);
+    if (res.ok) {
+      const data = await res.json();
+      userProgress = {};
+      data.progress.forEach(p => { userProgress[p.lesson_id] = p.completed_count; });
+    }
+  } catch (e) {}
+}
+
+// ============================================================
+// SCREENS
+// ============================================================
+function showScreen(name) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('screen-' + name).classList.add('active');
+
+  if (name === 'grades') renderGrades();
+  if (name === 'lessons') renderLessons();
+  if (name === 'mode') renderMode();
+}
+
+// ============================================================
+// AUTH
+// ============================================================
+function switchTab(tab) {
+  document.getElementById('tab-login').style.display   = tab === 'login'    ? 'block' : 'none';
+  document.getElementById('tab-register').style.display = tab === 'register' ? 'block' : 'none';
+  document.querySelectorAll('.auth-tab').forEach((el, i) => {
+    el.classList.toggle('active', (i === 0 && tab === 'login') || (i === 1 && tab === 'register'));
+  });
+}
+
+async function doLogin() {
+  const name = document.getElementById('login-name').value.trim();
+  const pin  = document.getElementById('login-pin').value;
+  document.getElementById('login-error').textContent = '';
+  if (!name || !pin) { document.getElementById('login-error').textContent = 'Լրացրեք բոլոր դաշտերը'; return; }
+  try {
+    const res = await fetch('/api/login', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, pin })
+    });
+    const data = await res.json();
+    if (!res.ok) { document.getElementById('login-error').textContent = data.error; return; }
+    currentUser = data.user;
+    await loadVocab(currentUser.grade);
+    showScreen('grades');
+  } catch (e) {
+    document.getElementById('login-error').textContent = 'Կապի սխալ';
+  }
+}
+
+async function doRegister() {
+  const name       = document.getElementById('reg-name').value.trim();
+  const pin        = document.getElementById('reg-pin').value;
+  const grade      = parseInt(document.getElementById('reg-grade').value);
+  const parentEmail = document.getElementById('reg-email').value.trim();
+  document.getElementById('reg-error').textContent = '';
+  if (!name || !pin) { document.getElementById('reg-error').textContent = 'Լրացրեք անունը և PIN-ը'; return; }
+  if (pin.length < 4) { document.getElementById('reg-error').textContent = 'PIN-ը պետք է լինի առնվազն 4 նիշ'; return; }
+  try {
+    const res = await fetch('/api/register', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, pin, grade, parentEmail })
+    });
+    const data = await res.json();
+    if (!res.ok) { document.getElementById('reg-error').textContent = data.error; return; }
+    currentUser = data.user;
+    await loadVocab(currentUser.grade);
+    showScreen('grades');
+  } catch (e) {
+    document.getElementById('reg-error').textContent = 'Կապի սխալ';
+  }
+}
+
+async function doLogout() {
+  await fetch('/api/logout', { method: 'POST' });
+  currentUser = null; vocabData = null; userProgress = {};
+  showScreen('auth');
+}
+
+// ============================================================
+// GRADES
+// ============================================================
+function renderGrades() {
+  document.getElementById('user-badge').textContent = (currentUser?.name || '') + ' · Ելք';
+  document.getElementById('user-badge-2').textContent = (currentUser?.name || '') + ' · Ելք';
+
+  const list = document.getElementById('grades-list');
+  list.innerHTML = GRADES.map(g => `
+    <button class="grade-btn"
+      style="background:${g.color};color:${g.textColor};"
+      ${!g.available ? 'disabled' : ''}
+      onclick="openGrade(${g.n}, '${g.color}', '${g.textColor}')">
+      <span>${g.n} Grade</span>
+      ${!g.available ? `<span class="soon">shortly</span>` : ''}
+      <span class="grade-icon">${g.icon}</span>
+    </button>`).join('');
+}
+
+function openGrade(n, color, textColor) {
+  currentGrade = { n, color, textColor };
+  showScreen('lessons');
+}
+
+// ============================================================
+// LESSONS
+// ============================================================
+function renderLessons() {
+  document.getElementById('lessons-title').textContent = `${currentGrade.n} Grade`;
+  const grid = document.getElementById('lessons-grid');
+  grid.innerHTML = vocabData.lessons.map(l => {
+    const done = userProgress[l.id] > 0;
+    return `<button class="lesson-card ${done ? 'done' : ''}"
+      style="background:${currentGrade.color}22;color:${currentGrade.textColor};"
+      onclick="openLesson(${l.id})">
+      <div class="lesson-num">${l.id}. ${l.topic} · Unit ${l.unit}</div>
+      <div class="lesson-title">${l.title}</div>
+      <div class="lesson-title-am">${l.title_am}</div>
+      <div class="lesson-words">${l.words.length} բառ</div>
+    </button>`;
+  }).join('');
+}
+
+function openLesson(id) {
+  currentLesson = vocabData.lessons.find(l => l.id === id);
+  showScreen('mode');
+}
+
+// ============================================================
+// MODE
+// ============================================================
+function renderMode() {
+  const l = currentLesson;
+  const g = currentGrade;
+  document.getElementById('mode-lesson-title').textContent = `${l.id}. ${l.title}`;
+  document.getElementById('mode-lesson-sub').textContent = `${l.title_am} · ${l.words.length} բառ`;
+
+  const reviewAvailable = vocabData.lessons
+    .filter(x => x.id < l.id)
+    .reduce((s, x) => s + x.words.length, 0);
+
+  document.getElementById('mode-grid').innerHTML = `
+    <button class="mode-btn" style="background:${g.color}33;" onclick="startGame('lesson')">
+      <span class="mode-icon">📖</span>
+      <span class="mode-title" style="color:${g.textColor};">Դասի բառեր</span>
+      <span class="mode-sub" style="color:${g.textColor};">${l.words.length} նոր բառ</span>
+    </button>
+    <button class="mode-btn" style="background:${g.color}33;" ${reviewAvailable === 0 ? 'disabled' : ''} onclick="startGame('review')">
+      <span class="mode-icon">🔄</span>
+      <span class="mode-title" style="color:${g.textColor};">Կրկնություն</span>
+      <span class="mode-sub" style="color:${g.textColor};">${reviewAvailable === 0 ? 'Բառ չկա' : 'Նախորդ դասերի բառեր'}</span>
+    </button>`;
+}
+
+// ============================================================
+// GAME
+// ============================================================
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function getReviewWords(lessonId, count) {
+  const pool = [];
+  vocabData.lessons.filter(l => l.id < lessonId).forEach(l => l.words.forEach(w => pool.push(w)));
+  return shuffle(pool).slice(0, Math.min(count, pool.length));
+}
+
+function startGame(mode) {
+  currentMode = mode;
+  const words = mode === 'lesson' ? currentLesson.words : getReviewWords(currentLesson.id, 10);
+  const left  = shuffle(words.map((w, i) => ({ key: i, text: w.en, matched: false })));
+  const right = shuffle(words.map((w, i) => ({ key: i, text: w.am, matched: false })));
+  game = { words, left, right, selLeft: null, selRight: null, matched: 0, wrong: 0 };
+  document.getElementById('game-title').textContent =
+    mode === 'lesson' ? currentLesson.title : 'Կրկնություն';
+  showScreen('game');
+  renderGame();
+}
+
+function renderGame(flash) {
+  const pct = Math.round((game.matched / game.words.length) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = pct + '%';
+  document.getElementById('game-status').textContent =
+    `Գտնված զույգեր՝ ${game.matched} / ${game.words.length}`;
+
+  document.getElementById('col-left').innerHTML  = game.left.map(c  => wordCardHTML(c,  'left',  flash)).join('');
+  document.getElementById('col-right').innerHTML = game.right.map(c => wordCardHTML(c, 'right', flash)).join('');
+}
+
+function wordCardHTML(card, side, flash) {
+  let cls = 'word-card';
+  if (card.matched) cls += ' matched';
+  else if (side === 'left'  && game.selLeft  === card.key) cls += ' selected';
+  else if (side === 'right' && game.selRight === card.key) cls += ' selected';
+  if (flash && ((side === 'left' && flash.left === card.key) || (side === 'right' && flash.right === card.key))) cls += ' shake';
+  const disabled = card.matched ? 'disabled' : '';
+  return `<button class="${cls}" ${disabled} onclick="pick('${side}', ${card.key})">${card.text}</button>`;
+}
+
+function pick(side, key) {
+  if (side === 'left')  game.selLeft  = (game.selLeft  === key) ? null : key;
+  else                  game.selRight = (game.selRight === key) ? null : key;
+
+  if (game.selLeft !== null && game.selRight !== null) {
+    if (game.selLeft === game.selRight) {
+      // Ճիշտ
+      game.left.find(c  => c.key === game.selLeft).matched  = true;
+      game.right.find(c => c.key === game.selRight).matched = true;
+      game.matched++;
+      game.selLeft = null; game.selRight = null;
+      renderGame();
+      if (game.matched === game.words.length) {
+        saveProgress();
+        setTimeout(showDone, 400);
+      }
+    } else {
+      // Սխալ
+      game.wrong++;
+      const flash = { left: game.selLeft, right: game.selRight };
+      game.selLeft = null; game.selRight = null;
+      renderGame(flash);
+      setTimeout(() => renderGame(), 500);
+    }
+    return;
+  }
+  renderGame();
+}
+
+async function saveProgress() {
+  try {
+    await fetch('/api/progress', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ grade: currentGrade.n, lessonId: currentLesson.id, completedCount: 1 })
+    });
+    userProgress[currentLesson.id] = (userProgress[currentLesson.id] || 0) + 1;
+  } catch (e) {}
+}
+
+function showDone() {
+  document.getElementById('done-sub').textContent =
+    `Բոլոր ${game.words.length} բառերը գտնված են` +
+    (game.wrong > 0 ? ` · Սխալներ՝ ${game.wrong}` : ' · Կատարյալ! 🌟');
+  showScreen('done');
+}
+
+// ============================================================
+// START
+// ============================================================
+init();
+</script>
+</body>
+</html>

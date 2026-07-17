@@ -1,0 +1,388 @@
+{
+  "grade": 5,
+  "description": "Անգլերենի բառապաշար 5-րդ դասարանի համար, ըստ դպրոցական ծրագրի թեմաների",
+  "lessons": [
+    {
+      "id": 1,
+      "topic": "Hobbies",
+      "topic_am": "Հոբիներ",
+      "unit": 1,
+      "title": "My Free Time",
+      "title_am": "Իմ ազատ ժամանակը",
+      "words": [
+        { "en": "hobby", "am": "հոբի" },
+        { "en": "activity", "am": "գործունեություն" },
+        { "en": "gardening", "am": "այգեգործություն" },
+        { "en": "photography", "am": "լուսանկարչություն" },
+        { "en": "collection", "am": "հավաքածու" },
+        { "en": "stamp", "am": "նամականիշ" },
+        { "en": "coin", "am": "մետաղադրամ" },
+        { "en": "camera", "am": "լուսանկարչական ապարատ" },
+        { "en": "to paint", "am": "նկարել (ներկով)" },
+        { "en": "to draw", "am": "նկարել" },
+        { "en": "engine", "am": "շարժիչ" },
+        { "en": "outdoors", "am": "դրսում, բացօթյա" }
+      ]
+    },
+    {
+      "id": 2,
+      "topic": "Hobbies",
+      "topic_am": "Հոբիներ",
+      "unit": 2,
+      "title": "Kinds of Hobbies",
+      "title_am": "Հոբիների տեսակները",
+      "words": [
+        { "en": "to include", "am": "ընդգրկել" },
+        { "en": "to collect", "am": "հավաքել" },
+        { "en": "sculpture", "am": "քանդակ" },
+        { "en": "handicraft", "am": "ձեռագործ" },
+        { "en": "useful", "am": "օգտակար" },
+        { "en": "to design", "am": "նկարագծել, ձևավորել" },
+        { "en": "postcard", "am": "բացիկ" },
+        { "en": "to ride", "am": "հեծանվով քշել" },
+        { "en": "to swim", "am": "լողալ" },
+        { "en": "magazine", "am": "ամսագիր" }
+      ]
+    },
+    {
+      "id": 3,
+      "topic": "Hobbies",
+      "topic_am": "Հոբիներ",
+      "unit": 3,
+      "title": "A Girl with Many Hobbies",
+      "title_am": "Աղջիկ, ով ունի շատ հոբիներ",
+      "words": [
+        { "en": "always", "am": "միշտ" },
+        { "en": "often", "am": "հաճախ" },
+        { "en": "usually", "am": "սովորաբար" },
+        { "en": "sometimes", "am": "երբեմն" },
+        { "en": "seldom", "am": "հազվադեպ" },
+        { "en": "stable", "am": "ախոռ" },
+        { "en": "to ski", "am": "դահուկ քշել" },
+        { "en": "choir", "am": "երգչախումբ" },
+        { "en": "church", "am": "եկեղեցի" },
+        { "en": "to ride a horse", "am": "ձիավարել" },
+        { "en": "alone", "am": "մենակ" },
+        { "en": "comic books", "am": "կոմիքսներ" },
+        { "en": "science fiction", "am": "ֆանտաստիկա" }
+      ]
+    },
+    {
+      "id": 4,
+      "topic": "Jobs and Occupations",
+      "topic_am": "Մասնագիտություններ",
+      "unit": 1,
+      "title": "What Do People Do?",
+      "title_am": "Ինչ են անում մարդիկ",
+      "words": [
+        { "en": "businessman", "am": "գործարար" },
+        { "en": "engineer", "am": "ինժեներ" },
+        { "en": "teacher", "am": "ուսուցիչ" },
+        { "en": "fireman", "am": "հրշեջ" },
+        { "en": "doctor", "am": "բժիշկ" },
+        { "en": "actor", "am": "դերասան" },
+        { "en": "policeman", "am": "ոստիկան" },
+        { "en": "nurse", "am": "բուժքույր" },
+        { "en": "farmer", "am": "ֆերմեր" },
+        { "en": "pilot", "am": "օդաչու" },
+        { "en": "waiter", "am": "մատուցող" },
+        { "en": "driver", "am": "վարորդ" },
+        { "en": "cook", "am": "խոհարար" },
+        { "en": "hospital", "am": "հոսպիտալ" },
+        { "en": "fire-station", "am": "հրշեջ կայան" }
+      ]
+    },
+    {
+      "id": 5,
+      "topic": "Jobs and Occupations",
+      "topic_am": "Մասնագիտություններ",
+      "unit": 2,
+      "title": "A Doctor's Story",
+      "title_am": "Բժշկի մասին պատմություն",
+      "words": [
+        { "en": "an occupation", "am": "զբաղմունք" },
+        { "en": "a shop-assistant", "am": "վաճառող" },
+        { "en": "a driver", "am": "վարորդ" },
+        { "en": "a manager", "am": "կառավարիչ" },
+        { "en": "to cure", "am": "բուժել" },
+        { "en": "bored", "am": "ձանձրացած" },
+        { "en": "nest", "am": "բույն" },
+        { "en": "branch", "am": "ճյուղ" },
+        { "en": "thin", "am": "նիհար" },
+        { "en": "comfortable", "am": "հարմարավետ" },
+        { "en": "careful", "am": "ուշադիր" },
+        { "en": "attentive", "am": "ուշադիր, ակնառու" },
+        { "en": "weak", "am": "թույլ" }
+      ]
+    },
+    {
+      "id": 6,
+      "topic": "Jobs and Occupations",
+      "topic_am": "Մասնագիտություններ",
+      "unit": 3,
+      "title": "A Family of Workers",
+      "title_am": "Աշխատող ընտանիք",
+      "words": [
+        { "en": "polite", "am": "քաղաքավարի" },
+        { "en": "adult", "am": "չափահաս" },
+        { "en": "to be proud (of)", "am": "հպարտանալ" },
+        { "en": "reporter", "am": "թղթակից" },
+        { "en": "dentist", "am": "ատամնաբույժ" },
+        { "en": "sportsman", "am": "մարզիկ" },
+        { "en": "newspaper", "am": "լրագիր" },
+        { "en": "famous", "am": "հայտնի" },
+        { "en": "secretary", "am": "քարտուղար" },
+        { "en": "designer", "am": "դիզայներ" }
+      ]
+    },
+    {
+      "id": 7,
+      "topic": "Community",
+      "topic_am": "Հասարակություն",
+      "unit": 1,
+      "title": "Caring for the Planet",
+      "title_am": "Հոգատարություն մոլորակի հանդեպ",
+      "words": [
+        { "en": "to celebrate", "am": "նշել, տոնել" },
+        { "en": "to take actions", "am": "գործել" },
+        { "en": "to protect", "am": "պաշտպանել" },
+        { "en": "damage", "am": "վնաս" },
+        { "en": "recycling", "am": "վերամշակում" },
+        { "en": "pollution", "am": "աղտոտում" },
+        { "en": "environment", "am": "միջավայր" },
+        { "en": "litter", "am": "աղբ" },
+        { "en": "planet", "am": "մոլորակ" },
+        { "en": "to save energy", "am": "խնայել էներգիան" },
+        { "en": "to plant a tree", "am": "ծառ տնկել" },
+        { "en": "to waste water", "am": "ջուր վատնել" }
+      ]
+    },
+    {
+      "id": 8,
+      "topic": "Community",
+      "topic_am": "Հասարակություն",
+      "unit": 2,
+      "title": "Nature and People",
+      "title_am": "Բնությունը և մարդիկ",
+      "words": [
+        { "en": "natural", "am": "բնական" },
+        { "en": "artificial", "am": "արհեստական" },
+        { "en": "to chop down", "am": "կտրել" },
+        { "en": "to feed", "am": "կերակրել" },
+        { "en": "to kill", "am": "սպանել" },
+        { "en": "sunlight", "am": "արևի լույս" },
+        { "en": "heat", "am": "ջերմություն" },
+        { "en": "forest", "am": "անտառ" },
+        { "en": "nature", "am": "բնություն" }
+      ]
+    },
+    {
+      "id": 9,
+      "topic": "Community",
+      "topic_am": "Հասարակություն",
+      "unit": 3,
+      "title": "My Hometown",
+      "title_am": "Իմ հայրենի քաղաքը",
+      "words": [
+        { "en": "native town", "am": "հայրենի քաղաք" },
+        { "en": "modern", "am": "ժամանակակից" },
+        { "en": "monument", "am": "հուշարձան" },
+        { "en": "museum", "am": "թանգարան" },
+        { "en": "library", "am": "գրադարան" },
+        { "en": "village", "am": "գյուղ" },
+        { "en": "fountain", "am": "շատրվան" },
+        { "en": "stadium", "am": "մարզադաշտ" },
+        { "en": "crowded", "am": "խճողված" },
+        { "en": "noisy", "am": "աղմկոտ" },
+        { "en": "quiet", "am": "հանգիստ" },
+        { "en": "crossroad", "am": "խաչմերուկ" }
+      ]
+    },
+    {
+      "id": 10,
+      "topic": "Travelling",
+      "topic_am": "Ճանապարհորդություն",
+      "unit": 1,
+      "title": "How People Travel",
+      "title_am": "Ինչպես են մարդիկ ճանապարհորդում",
+      "words": [
+        { "en": "travelling", "am": "ճանապարհորդություն" },
+        { "en": "relative", "am": "ազգական" },
+        { "en": "distance", "am": "հեռավորություն" },
+        { "en": "passenger", "am": "ուղևոր" },
+        { "en": "cheap", "am": "էկոնոմ, ոչ թանկ" },
+        { "en": "expensive", "am": "թանկ" },
+        { "en": "departure", "am": "մեկնում" },
+        { "en": "security control", "am": "անվտանգության ստուգում" },
+        { "en": "motorcycle", "am": "մոտոցիկլետ" },
+        { "en": "ticket", "am": "տոմս" },
+        { "en": "airport", "am": "օդանավակայան" }
+      ]
+    },
+    {
+      "id": 11,
+      "topic": "Travelling",
+      "topic_am": "Ճանապարհորդություն",
+      "unit": 2,
+      "title": "Getting Ready for a Trip",
+      "title_am": "Պատրաստվում ենք ուղևորության",
+      "words": [
+        { "en": "photographer", "am": "լուսանկարիչ" },
+        { "en": "without", "am": "առանց" },
+        { "en": "suitcase", "am": "ճամպրուկ" },
+        { "en": "holiday", "am": "արձակուրդ" },
+        { "en": "to book", "am": "ամրագրել" },
+        { "en": "window seat", "am": "պատուհանի մոտ նստատեղ" },
+        { "en": "luggage", "am": "ուղեբեռ" },
+        { "en": "double room", "am": "երկտեղանոց սենյակ" },
+        { "en": "receptionist", "am": "ընդունարանի աշխատակից" }
+      ]
+    },
+    {
+      "id": 12,
+      "topic": "Travelling",
+      "topic_am": "Ճանապարհորդություն",
+      "unit": 3,
+      "title": "Exploring Armenia",
+      "title_am": "Հայաստանի ուսումնասիրությունը",
+      "words": [
+        { "en": "unfortunately", "am": "ցավոք" },
+        { "en": "straight", "am": "ուղիղ" },
+        { "en": "exciting", "am": "հետաքրքրաշարժ" },
+        { "en": "to promise", "am": "խոստանալ" },
+        { "en": "seat belt", "am": "գոտի" },
+        { "en": "helmet", "am": "սաղավարտ" },
+        { "en": "crossing", "am": "անցում" },
+        { "en": "to arrive", "am": "ժամանել" },
+        { "en": "to leave", "am": "հեռանալ, թողնել" },
+        { "en": "sightseeing", "am": "տեսարժան վայրերի դիտում" }
+      ]
+    },
+    {
+      "id": 13,
+      "topic": "Animals",
+      "topic_am": "Կենդանիներ",
+      "unit": 1,
+      "title": "Wild and Domestic Animals",
+      "title_am": "Վայրի և ընտանի կենդանիներ",
+      "words": [
+        { "en": "truck", "am": "բեռնատար" },
+        { "en": "to guard", "am": "պահպանել" },
+        { "en": "wild animals", "am": "վայրի կենդանիներ" },
+        { "en": "domestic animals", "am": "ընտանի կենդանիներ" },
+        { "en": "fox", "am": "աղվես" },
+        { "en": "lion", "am": "առյուծ" },
+        { "en": "elephant", "am": "փիղ" },
+        { "en": "monkey", "am": "կապիկ" },
+        { "en": "camel", "am": "ուղտ" },
+        { "en": "kangaroo", "am": "կենգուրու" },
+        { "en": "sheep", "am": "ոչխար" },
+        { "en": "trunk (of elephant)", "am": "կնճիթ" }
+      ]
+    },
+    {
+      "id": 14,
+      "topic": "Animals",
+      "topic_am": "Կենդանիներ",
+      "unit": 2,
+      "title": "A Tale of Two Neighbours",
+      "title_am": "Հեքիաթ երկու հարևանների մասին",
+      "words": [
+        { "en": "insect", "am": "միջատ" },
+        { "en": "bee", "am": "մեղու" },
+        { "en": "beetle", "am": "բզեզ" },
+        { "en": "dung", "am": "գոմաղբ" },
+        { "en": "hive", "am": "փեթակ" },
+        { "en": "trunk", "am": "բուն (ծառի)" },
+        { "en": "to be fascinated", "am": "հիացած լինել" },
+        { "en": "amazing", "am": "զարմանալի" },
+        { "en": "to worry", "am": "անհանգստանալ" },
+        { "en": "safari", "am": "սաֆարի" }
+      ]
+    },
+    {
+      "id": 15,
+      "topic": "Animals",
+      "topic_am": "Կենդանիներ",
+      "unit": 3,
+      "title": "Animal Friends in the Forest",
+      "title_am": "Կենդանի ընկերներ անտառում",
+      "words": [
+        { "en": "rustling", "am": "խշշոց" },
+        { "en": "trap", "am": "ծուղակ" },
+        { "en": "to count on smb", "am": "հույս դնել մեկի վրա" },
+        { "en": "snout", "am": "դունչ" },
+        { "en": "jaws", "am": "ծնոտ" },
+        { "en": "horn", "am": "եղջյուր" },
+        { "en": "paws", "am": "թաթեր" },
+        { "en": "deer", "am": "եղնիկ" },
+        { "en": "bear", "am": "արջ" },
+        { "en": "wolf", "am": "գայլ" },
+        { "en": "crocodile", "am": "կոկորդիլոս" },
+        { "en": "to defend", "am": "պաշտպանել" },
+        { "en": "dolphin", "am": "դելֆին" }
+      ]
+    },
+    {
+      "id": 16,
+      "topic": "Health",
+      "topic_am": "Առողջություն",
+      "unit": 1,
+      "title": "When We Feel Sick",
+      "title_am": "Երբ մենք հիվանդ ենք",
+      "words": [
+        { "en": "to catch a cold", "am": "հարբուխ բռնել" },
+        { "en": "sore throat", "am": "կոկորդի ցավ" },
+        { "en": "pharmacy", "am": "դեղատուն" },
+        { "en": "recover", "am": "առողջանալ" },
+        { "en": "headache", "am": "գլխացավ" },
+        { "en": "toothache", "am": "ատամնացավ" },
+        { "en": "stomachache", "am": "ստամոքսացավ" },
+        { "en": "backache", "am": "մեջքացավ" },
+        { "en": "earache", "am": "ականջացավ" },
+        { "en": "cough", "am": "հազ" },
+        { "en": "the flu", "am": "գրիպ" },
+        { "en": "sore eyes", "am": "ցավող աչքեր" },
+        { "en": "medicine", "am": "դեղ" }
+      ]
+    },
+    {
+      "id": 17,
+      "topic": "Health",
+      "topic_am": "Առողջություն",
+      "unit": 2,
+      "title": "Healthy and Unhealthy Food",
+      "title_am": "Առողջարար և վնասակար սնունդ",
+      "words": [
+        { "en": "mineral", "am": "միներալ" },
+        { "en": "junk food", "am": "վնասակար/արագ սնունդ" },
+        { "en": "vitamin", "am": "վիտամին" },
+        { "en": "fat", "am": "ճարպ" },
+        { "en": "sugar", "am": "շաքար" },
+        { "en": "healthy", "am": "առողջարար" },
+        { "en": "unhealthy", "am": "վնասակար" },
+        { "en": "vegetable", "am": "բանջարեղեն" }
+      ]
+    },
+    {
+      "id": 18,
+      "topic": "Health",
+      "topic_am": "Առողջություն",
+      "unit": 3,
+      "title": "Sports Keep Us Healthy",
+      "title_am": "Սպորտը մեզ առողջ է պահում",
+      "words": [
+        { "en": "movement", "am": "շարժում" },
+        { "en": "bend", "am": "ծալվել" },
+        { "en": "stretch", "am": "ձգվել" },
+        { "en": "jog", "am": "դանդաղ վազել" },
+        { "en": "exercise", "am": "վարժություն" },
+        { "en": "energy", "am": "էներգիա" },
+        { "en": "chess", "am": "շախմատ" },
+        { "en": "championship", "am": "չեմպիոնատ" },
+        { "en": "swimming", "am": "լողալ (գոյական)" },
+        { "en": "to train", "am": "մարզվել" }
+      ]
+    }
+  ]
+}

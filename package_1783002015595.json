@@ -1,0 +1,16 @@
+{
+  "name": "english-trainer",
+  "version": "1.0.0",
+  "description": "Word matching trainer for school English vocabulary",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "bcryptjs": "^2.4.3",
+    "express-session": "^1.18.0",
+    "connect-pg-simple": "^9.0.1"
+  }
+}
